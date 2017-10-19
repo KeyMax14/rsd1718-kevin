@@ -1,6 +1,6 @@
 >Trabajo Realizado por:
 >
->[Noelia Hernández Domínguez]()
+>[Noelia Hernández Domínguez](https://github.com/NoeClariNista/srd/blob/master/trim1/u2/dhcp_failover_en_windows_2012_server.md)
 >
 >[Roberto Hernández Sanabria](https://github.com/xxkiroxx/servicios-red-internet/blob/master/trim1/u1/a3-dhcp-failover-windows/README.md)
 >
@@ -120,7 +120,7 @@ Tras esto ya nos aparecerán los ámbitos del DHCP principal.
 
 ## 2.3. Equipo Cliente<a name="5"></a>
 
-Ha llegado el momento de comprobar que nuestros servidor `DHCP Failover` funciona correctamente, para esto nos dirigimos a nuestra máquina cliente y reiniciamos la tarjeta de red.
+Ha llegado el momento de comprobar que nuestro servidor `DHCP Failover` funciona correctamente, para esto nos dirigimos a nuestra máquina cliente y reiniciamos la tarjeta de red.
 
 - Realizamos un `ipconfig /release` y `ipconfig /renew`
 
