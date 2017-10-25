@@ -42,7 +42,7 @@ Podemos dejar la configuración estándar
 
 ### 2.2. Zona de búsqueda inversa
 
-Vamos a crear una nueva zona, esta vez una zona inversa, la cual guardará la información del nombre que se le da a las direcciones IP con registros `PTR`
+Vamos a crear una nueva zona, esta vez una zona inversa, la cual guardará la información del nombre que se le da a las direcciones IP con registros `PTR`.
 
 ![Imagen](img/09.png)
 
@@ -82,28 +82,126 @@ Ahora vamos a configurar nuestro servidor como DNS maestro, para eso vamos a cre
 
 1. Un alias para nuestro servidor denominado `server`.
 
-![Imagen](img/.png)
+      - Para establecer un alias en nuestro servidor primero crearemos un registro `A` para el mismo.
+
+        ![Imagen](img/20.png)
+
+        ![Imagen](img/21.png)
+
+      - Después de eso ya podemos crear el registro `CNAME` donde escribiremos el alias de nuestro servidor.
+
+        ![Imagen](img/22.png)
+
+        ![Imagen](img/23.png)
+
+        ![Imagen](img/24.png)
 
 2. Una impresora con IP fija denominada `printer`, sin necesidad de alias.
 
-![Imagen](img/.png)
+    - Para esto solo tenemos que añadir un registro `A`.
+
+        ![Imagen](img/25.png)
+
+        ![Imagen](img/26.png)
 
 3. Un servidor de correo denominado `correo`, asociado a una dirección en nuestro servidor.
 
-![Imagen](img/.png)
+    - En versiones anteriores a Windows 2012 server se permitía configurar un servidor de correo asignándole directamente una IP, pero en nuestro caso tendremos que hacer primero un  registro `A`.
 
-Por último vamos a crear una subzona denominada `servicios` en el cual agregaremos:
+      ![Imagen](img/27.png)
 
-![Imagen](img/.png)
+    - Una vez hecho esto crearemos un registro `MX` para configurar la información del servidor de correo.
+
+      ![Imagen](img/28.png)
+
+      ![Imagen](img/29.png)
+
+      ![Imagen](img/30.png)
+
+Por último vamos a crear una subzona denominada `servicios`, para esto pulsamos clic derecho en las opciones de nuestra zona directa y seleccionamos `Dominio nuevo`.
+
+![Imagen](img/31.png)
+
+![Imagen](img/32.png)
+
+![Imagen](img/33.png)
+
+Una vez generada la subzona añadiremos a nuestro servidor DNS lo siguiente:
 
 1. Un servidor ftp (asociado a la misma IP de nuestro servidor).
 
-![Imagen](img/.png)
+    ![Imagen](img/34.png)
 
 2. Una impresora nueva (Con una IP fija).
 
-![Imagen](img/.png)
+    ![Imagen](img/36.png)
 
 3. El equipo del administrador del sistema (Con una IP fija).
 
-![Imagen](img/.png)
+    ![Imagen](img/35.png)
+
+![Imagen](img/37.png)
+
+## 5. Comprobaciones desde el servidor
+
+Una vez que configurado nuestro `DNS Maestro` vamos a comprobar que resuelve correctamente desde una consola desde el propio servidor.
+
+Para esto utilizaremos el comando `nslookup`.
+
+- `Server` y `Printer`:
+
+![Imagen](img/38.png)
+
+- `Correo`:
+
+> En este podemos utilizar el comando `nslookup -type=mx` para ver el nombre del servidor de correos.
+
+![Imagen](img/39.png)
+
+- Dentro de la subzona `servicios`:
+
+![Imagen](img/40.png)
+
+## 6. Validar un cliente en el Dominio
+
+Una vez comprobado que nuestro servidor DNS opera correctamente desde nuestro servidor probaremos a validar un cliente en nuestro Dominio. A la hora de validar el cliente podemos comprobar desde la configuración de nuestro DNS que en el dominio se crea un nuevo registro `A` para este.
+
+![Imagen](img/41.png)
+
+![Imagen](img/42.png)
+
+### 6.1. Comprobaciones desde el cliente
+
+Al igual que con el servidor vamos a comprobar que funcionan nuestros registros desde el cliente utilizando nuevamente el comando `nslookup`.
+
+#### 6.1.1. DNS Master
+
+- `Server` y `Printer`:
+
+![Imagen](img/43.png)
+
+- `correo`: (`nslookup -type=mx`)
+
+![Imagen](img/44.png)
+
+- Dentro de la subzona `servicios`:
+
+![Imagen](img/45.png)
+
+#### 6.1.2. DNS caché
+
+También comprobaremos que nuestro servidor funciona como `DNS caché` probando direcciones de sitios web públicos.
+
+- `Facebook`:
+
+![Imagen](img/46.png)
+
+- `Google`:
+
+![Imagen](img/47.png)
+
+- `Forocoches`:
+
+![Imagen](img/48.png)
+
+Una vez comprobado todo esto podemos dar por finalizada esta actividad.
