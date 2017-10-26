@@ -86,15 +86,15 @@ Ahora vamos a configurar nuestro servidor como DNS maestro, para eso vamos a cre
 
         ![Imagen](img/20.png)
 
-        ![Imagen](img/21.png)
+        ![Imagen](img/21-2.png)
 
       - Después de eso ya podemos crear el registro `CNAME` donde escribiremos el alias de nuestro servidor.
 
         ![Imagen](img/22.png)
 
-        ![Imagen](img/23.png)
+        ![Imagen](img/23-2.png)
 
-        ![Imagen](img/24.png)
+        ![Imagen](img/24-2.png)
 
 2. Una impresora con IP fija denominada `printer`, sin necesidad de alias.
 
