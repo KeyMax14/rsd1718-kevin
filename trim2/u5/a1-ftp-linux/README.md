@@ -130,7 +130,7 @@ Podemos modificar todo lo referido a `proftpd` desde el fichero `/etc/proftpd/pr
 
 ![Imagen](img/030.png)
 
-Nosotros vamos a modificar en el fichero `proftpd.conf` descomentando la linea `DefaultRoot`, que es un parametro con el que podemos indicar el `home` de los usuarios, y el punto a partir del cual no pueden retroceder.
+Nosotros vamos a modificar en el fichero `proftpd.conf` descomentando la línea `DefaultRoot`, que es un parámetro con el que podemos indicar el `home` de los usuarios, y el punto a partir del cual no pueden retroceder.
 
 ![Imagen](img/031.png)
 
