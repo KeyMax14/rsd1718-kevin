@@ -156,4 +156,36 @@ Ahora vamos a comprobar que se puede acceder desde el cliente.
 
 ![Imagen](img/035.png)
 
-> En este caso si es posible, porque indicamos en el `DefaultRoot` de `stan` la ruta `/`,
+> En este caso si es posible acceder a rutas anteriores a `/home/stan`, porque indicamos en el `DefaultRoot` de `stan` la ruta `/`.
+
+Vamos a hacer algunas pruebas de subida y descarga de archivos utilizando nuestros dos usuarios desde el cliente:
+
+- Usuario `eric`:
+
+  - Descargamos un archivo desde `/home/eric` a nuestro cliente.
+
+    ![Imagen](img/036.png)
+
+    ![Imagen](img/037.png)
+
+  - Subimos un archivo desde el cliente a `/home/eric` en remoto.
+
+    ![Imagen](img/038.png)
+
+    ![Imagen](img/039.png)
+
+- Usuario `stan`:
+
+  - Descargamos un archivo desde `/home/stan` a nuestro cliente.
+
+    ![Imagen](img/040.png)
+
+    ![Imagen](img/041.png)
+
+    ![Imagen](img/042.png)
+
+  - Subimos un archivo desde el cliente a `/home/stan` en remoto.
+
+    ![Imagen](img/043.png)
+
+Una vez hecho esto podemos dar por finalizada la actividad.
