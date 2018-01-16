@@ -83,3 +83,77 @@ Esto también lo podemos hacer utilizando otro usuario, por ejemplo `stan`.
 ## 6. `SCP`
 
 Otra herramienta de la que podemos hacer uso es de `SCP`, con esta herramienta podemos realizar copias seguras desde máquinas remotas.
+
+En mi caso me voy a conectar a la máquina cliente y ejecutar el comando desde allí, desde aquí haremos copias desde el servidor al cliente y viceversa. La estructura es la misma que el comando `CP`.
+```
+scp 'ruta origen' 'ruta destino'
+```
+Y cuando nos conectemos a una máquina externa usamos la siguiente nomenclatura:
+
+```
+'usuario'@'host':'ruta remota'  # Por defecto la ruta del usuario es el home del mismo.
+```
+
+- Copiamos un archivo desde el home de `eric` a nuestro cliente.
+
+  ![Imagen](img/023.png)
+
+  ![Imagen](img/021.png)
+
+- Copiamos un archivo desde el home de `stan` a nuestro cliente.
+
+  ![Imagen](img/024.png)
+
+  ![Imagen](img/022.png)
+
+- Copiamos un archivo desde nuestro cliente al home de `eric` y al home de `stan`.
+
+  ![Imagen](img/025.png)
+
+  ![Imagen](img/026.png)
+
+  ![Imagen](img/027.png)
+
+## 7. Instalar el servicio `proftpd`
+
+Ahora vamos a instalar el servicio `proftpd`, con este servicio podemos hacer que los usuarios puedan acceder a nuestro servidor mediante `ftp`, con `proftpd` podemos hacer algunas restricciones dentro de este servicio como veremos más adelante, para instalar el servicio ejecutaremos el comando `sudo apt install proftpd`
+
+![Imagen](img/028.png)
+
+A mitad de la instalación nos pedirá elegir entre `desde inetd` o `independiente` según el trafico que recibamos en nuestro servidor, en nuestro caso lo dejamos por defecto.
+
+![Imagen](img/029.png)
+
+### 7.1. Configurar `proftpd`
+
+Podemos modificar todo lo referido a `proftpd` desde el fichero `/etc/proftpd/proftpd.conf`, también podemos añadir archivos de configuración separados en la subcarpeta `/etc/proftpd/conf.d`.
+
+![Imagen](img/030.png)
+
+Nosotros vamos a modificar en el fichero `proftpd.conf` descomentando la linea `DefaultRoot`, que es un parametro con el que podemos indicar el `home` de los usuarios, y el punto a partir del cual no pueden retroceder.
+
+![Imagen](img/031.png)
+
+> Configuramos al usuario `eric` en su home y al usuario `stan` desde la raíz, ya que es un usuario con permisos de administrador.
+
+Reiniciamos el servicio para que se refresquen los cambios.
+
+![Imagen](img/032.png)
+
+### 7.2. Comprobaciones
+
+Vamos a comprobar que funciona nuestro servicio FTP, lo primero que comprobaremos será acceder desde nuestro servidor.
+
+![Imagen](img/033.png)
+
+![Imagen](img/033-1.png)
+
+> En esta última captura podemos observar que el usuario `eric` esta limitado solo a su home.
+
+Ahora vamos a comprobar que se puede acceder desde el cliente.
+
+![Imagen](img/034.png)
+
+![Imagen](img/035.png)
+
+> En este caso si es posible, porque indicamos en el `DefaultRoot` de `stan` la ruta `/`,
