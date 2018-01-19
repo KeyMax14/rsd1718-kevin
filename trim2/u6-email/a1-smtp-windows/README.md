@@ -37,11 +37,17 @@ Ahora desde el administrador de `IIS 6.0` vamos a configurar algunos parámetros
 
   ![Imagen](img/009.png)
 
-- Configuramos el envío de mensajes desde nuestra red local y limitamos la conexión a una lista de IPs.
+- Configuramos la conexión desde nuestra red local y limitamos la conexión a una lista de IPs.
 
   ![Imagen](img/010.png)
 
   ![Imagen](img/011.png)
+
+- Configuramos el envío de mensajes desde nuestra red local y limitamos la conexión a una lista de IPs.
+
+  ![Imagen](img/011-1.png)
+
+  ![Imagen](img/011-2.png)
 
 - Permitimos la autenticación anonima.
 
