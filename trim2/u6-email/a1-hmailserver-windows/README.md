@@ -142,10 +142,14 @@ Si ahora volvemos al servidor al apartado de `Diagnostics` podemos ver que el do
 
 ![Imagen](img/041.png)
 
-Por algún motivo seguramente referido a la poca fiabilidad de la transmisión `DNS` el dominio `asir.edu` sigue mostrando un error respecto a los registros `MX`, pero con un `nslookup` podemos comprobar que funciona correctamente.
+Por algún motivo seguramente referido a la poca fiabilidad de la propagación  `DNS` el dominio `asir.edu` sigue mostrando un error respecto a los registros `MX`, pero con un `nslookup` podemos comprobar que funciona correctamente.
 
 ![Imagen](img/043.png)
 
 ![Imagen](img/042.png)
+
+> Esperando lo suficiente finalmente se muestra todo correcto en los diagnosticos.
+>
+> ![Imagen](img/044.png)
 
 ## 7. Diferentes configuraciones de hMailServer
