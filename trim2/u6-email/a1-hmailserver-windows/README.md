@@ -153,3 +153,145 @@ Por algún motivo seguramente referido a la poca fiabilidad de la propagación  
 > ![Imagen](img/044.png)
 
 ## 7. Diferentes configuraciones de hMailServer
+
+Para finalizar con las configuraciones de hMailServer vamos a añadir varias opciones:
+
+- Opción en el protocolo SMTP - Nombre de host:
+
+  ![Imagen](img/045.png)
+
+- Configuración de listas negras:
+
+  ![Imagen](img/046.png)
+
+- Rango de IPs permitidas (Todas):
+
+  ![Imagen](img/047.png)
+
+- `Auto-Ban`:
+
+  Esta opción es prioritaria seleccionarla se queremos poder recibir el correo entrante.
+
+  ![Imagen](img/048.png)
+
+- `Mirror`:
+
+  En esta opción podemos duplicar la información recibida el servidor de email para balancear cargar o tener un servicio ininterrumpido.
+
+  ![Imagen](img/049.png)
+
+- `Loggin`:
+
+  En esta opción seleccionamos los archivos de log que queremos guardar.
+
+  ![Imagen](img/050.png)
+
+## 8. Configurar cliente
+
+En este apartado vamos a reutiliza el cliente `Opera Mail` utilizado anteriormente, borramos los mail que habíamos creado y añadimos a todos nuestros nuevos usuarios.
+
+- Usuario `kyle@asir.edu`:
+
+  ![Imagen](img/051.png)
+
+  ![Imagen](img/052.png)
+
+  > **Nota:** Es importante que el nombre de usuario sea la dirección completa para que funcione correctamente.
+
+  ![Imagen](img/053.png)
+
+  > Aquí usamos el nombre DNS que creamos con anterioridad.
+
+- Usuario `eric@asir.edu`:
+
+  Creamos el usuario igual que el anterior cambiando al usuario.
+
+  ![Imagen](img/055.png)
+
+- Usuario `kenny@srd.edu`:
+
+  ![Imagen](img/056.png)
+
+  ![Imagen](img/057.png)
+
+  ![Imagen](img/058.png)
+
+- Usuario `stan@srd.edu`:
+
+  Igual que `kenny` pero cambiando el nombre.
+
+  ![Imagen](img/059.png)
+
+## 9. Pruebas de envío desde los clientes
+
+Vamos a probar como se envían y se reciben los mensajes desde todos los clientes.
+
+- `eric@asir.edu` -> `kyle@srd.edu`:
+
+  ![Imagen](img/060.png)
+
+  ![Imagen](img/061.png)
+
+  El correo se ha recibido correctamente.
+
+- `kenny@srd.edu` -> `eric@asir.edu`:
+
+  ![Imagen](img/062.png)
+
+  En este caso como se menciona en el mensaje, el usuario `eric` tiene habilitado el `Forwarding` hacia el usuario `kyle`. A su vez el usuario `Kyle` tiene un `Auto-reply`, por lo que se enviará el mensaje original a `eric` y `kyle`, mientras que la auto-respuesta de `kyle` se enviará a `kenny` y a `eric`.
+
+  - `eric`:
+
+    ![Imagen](img/063.png)
+
+    ![Imagen](img/064.png)
+
+    ![Imagen](img/065.png)
+
+  - `kyle`:
+
+    ![Imagen](img/066.png)
+
+  - `kenny`:
+
+    ![Imagen](img/067.png)
+
+- `kyle@asir.edu` -> `stan@srd.edu`:
+
+  ![Imagen](img/068.png)
+
+  En este caso como dice el mensaje, el usuario `kyle` tiene establecida una firma al final de sus mensajes, así que aunque no este escrito enviará también el texto `un saludo`.
+
+  ![Imagen](img/069.png)
+
+## 10. Crear una lista de distribución
+
+El servidor `hMailServer` también tiene la característica de agrupar mail en una misma dirección utilizando grupos llamados `listas de distribución`. Vamos a crear una lista de distribución para los usuarios `kenny@srd.edu` y `stan@srd.edu`.
+
+Para hacer esto nos dirigimos a `Domains` -> `srd.edu` -> `Distribution list`, asignamos un nombre a nuestra lista y pulsamos en `save`.
+
+![Imagen](img/070.png)
+
+Una vez realizado esto nos desplazamos a la pestaña `Members` y añadimos ambos usuarios.
+
+![Imagen](img/071.png)
+
+### 10.1. Comprobar el funcionamiento de la lista
+
+Para comprobar que la lista vamos a enviar un correo a `ParaTodo@srd.edu`.
+
+![Imagen](img/072.png)
+
+Al enviar el correo vemos que recibimos dos correos nuevos en los usuarios `kenny@srd.edu` y `stan@srd.edu`.
+
+![Imagen](img/073.png)
+
+- `kenny`:
+
+  ![Imagen](img/074.png)
+
+- `stan`:
+
+  ![Imagen](img/075.png)
+
+Una vez realizado esto podemos dar por finalizada la práctica.
